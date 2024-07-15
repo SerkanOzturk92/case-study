@@ -35,12 +35,12 @@ const Cart = () => {
   return (
     <div style={styles}>
       {selectedBets.map(({ bet, cellValue }, i) => (
-        <div style={{ margin: '20px', borderBottom: '1px solid gray' }}>
-          {bet.C} {bet.N} - {cellValue}
+        <div style={{ padding: '20px', borderBottom: '1px solid gray' }}>
+          Kod: {bet.C} Maç: {bet.N} <strong>Oran: {cellValue}</strong>
         </div>
       ))}
 
-      <div style={{ margin: '0 20px', position:'sticky', bottom:0, padding: '20px', background:'white' }}> Toplam Tutar: {getTotal()} TL</div>
+      <div style={{ position:'sticky', bottom:0, padding: '20px', background:'white', borderTop: '1px solid gray' }}> Toplam Tutar: {getTotal()} TL</div>
     </div>
   );
 };
