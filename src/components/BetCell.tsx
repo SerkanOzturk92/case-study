@@ -1,6 +1,6 @@
 import React from 'react';
-import { useCartContext } from '../context/cartContext';
 import { getValueByPath } from '../utils/helpers';
+import { useCartContext } from '../context/Cart';
 
 export type BetCellPropsType = {
   bet?: any;

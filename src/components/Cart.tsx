@@ -1,7 +1,7 @@
-import { useCartContext } from '../context/cartContext';
-import { useBetProvider } from '../context/betContext';
 import { getValueByPath } from '../utils/helpers';
 import React, { useMemo } from 'react';
+import { useBetProvider } from '../context/Bet';
+import { useCartContext } from '../context/Cart';
 
 const Cart = () => {
   const { selectedBetMap } = useCartContext();

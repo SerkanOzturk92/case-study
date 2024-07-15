@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from "./Home";
-import { CartProvider } from './context/cartContext';
-import { BetProvider } from './context/betContext';
+import { BetProvider } from './context/Bet';
+import { CartProvider } from './context/Cart';
 
 const App = () => {
     return <div>
