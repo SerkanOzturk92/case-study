@@ -6,8 +6,8 @@ type CartContextProps = {
   isSelectedBet: (rowId: RowId, colId: ColId)=>boolean;
 };
 
-type RowId = string;
-type ColId = string;
+export type RowId = string;
+export type ColId = string;
 
 type SelectedBetMap = Record<RowId, ColId>;
 

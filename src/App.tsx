@@ -1,12 +1,15 @@
 import React from 'react';
 import Home from "./Home";
 import { CartProvider } from './context/cartContext';
+import { BetProvider } from './context/betContext';
 
 const App = () => {
     return <div>
-        <CartProvider>
-            <Home/>
-        </CartProvider>
+        <BetProvider>
+            <CartProvider>
+                <Home/>
+            </CartProvider>
+        </BetProvider>
     </div>
 }
 

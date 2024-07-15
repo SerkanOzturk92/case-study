@@ -31,10 +31,18 @@ const BetItem2 = ({ bet }: any) => {
         style={{
           background: 'white',
           position: 'sticky',
-          left: 0
+          left: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          border: "1px solid black",
         }}>
-        <strong>{bet.C}</strong>
-        {` ${bet.T} ${bet.N}`}
+        <div style={{height: '20px', borderBottom: '1px solid black', lineHeight: '20px', padding: '0 10px'}}>
+          {`${bet.D} ${bet.DAY} ${bet.LN}`}
+        </div>
+        <div style={{height: '30px', lineHeight: '30px', padding: '0 10px'}}>
+          <strong>{bet.C}</strong>
+          {` ${bet.T} ${bet.N}`}
+        </div>
       </InfoCell>
       <InfoCell>Yorumlar</InfoCell>
       <InfoCell>{bet.MBS}</InfoCell>
@@ -79,18 +87,20 @@ const Table = ({bets}: TablePropsType) => {
               border: '1px solid black',
               position: 'sticky',
               left: 0,
-              zIndex: 1
+              zIndex: 1,
+              width: '300px',
+              height: '50px'
             }}>
             Event Count: {bets.length}
           </th>
           {TABLE_HEADER_LIST.map((th, i) => (
-            <th key={`${th}-${i}`} style={{ background: 'lightgray', border: '1px solid black' }}>
+            <th key={`${th}-${i}`} style={{ background: 'lightgray', border: '1px solid black', width:'50px' }}>
               {th}
             </th>
           ))}
         </tr>
       )}
-      itemContent={(i, bet) => <BetItem2 bet={bet}></BetItem2>}
+      itemContent={(i, bet) => <BetItem2 bet={bet} />}
     />
   )
 }

@@ -9,7 +9,6 @@ export type BetCellPropsType = {
 
 const BetCell = ({bet, valueKey}: BetCellPropsType) => {
   const { selectBet, isSelectedBet } = useCartContext();
-  // TODO: bunlar buradan taşınabilir.
   const cellValue = getValueByPath(bet, valueKey);
 
   if(!bet) return <td></td>;

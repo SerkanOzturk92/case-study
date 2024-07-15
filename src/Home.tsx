@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { getBets } from './api/bets';
 import Table from './components/Table';
 import Cart from './components/Cart';
+import { useBetProvider } from './context/betContext';
 
 const Home = () => {
-  const [bets, setBets] = useState<any>([]);
+  const {bets, setBets} = useBetProvider();
+
   useEffect(() => {
     getBets().then((resp) => {
       setBets(resp);
