@@ -11,8 +11,15 @@ type TablePropsType = {
 const BetItem = ({ bet }: any) => {
   return (
     <>
-      <InfoCell style={{ width: 400, position: 'sticky', left: 0 }} cellHeader={`${bet.D} ${bet.DAY} ${bet.LN}`}>
-          <strong style={{marginRight: 6}}>{bet.C}</strong><span>{bet.T} {bet.N}</span>
+      <InfoCell
+        style={{ width: 400, position: 'sticky', left: 0, textAlign: 'left' }}
+        cellHeader={`${bet.D} ${bet.DAY} ${bet.LN}`}>
+        <div style={{width: '100%'}}>
+          <strong style={{ marginRight: 6 }}>{bet.C}</strong>
+          <span>
+            {bet.T} {bet.N}
+          </span>
+        </div>
       </InfoCell>
       <InfoCell cellHeader={'Yorumlar'}>Yorumlar</InfoCell>
       <InfoCell cellHeader={''}>{bet.MBS}</InfoCell>
@@ -26,7 +33,7 @@ const BetItem = ({ bet }: any) => {
       <InfoCell cellHeader={'X'}></InfoCell>
       <InfoCell cellHeader={'2'}></InfoCell>
       <InfoCell cellHeader={'H-2'}></InfoCell>
-      <BetCell  cellHeader={'1-X'} bet={bet} valueKey={'OCG[2].OC[3].O'}></BetCell>
+      <BetCell cellHeader={'1-X'} bet={bet} valueKey={'OCG[2].OC[3].O'}></BetCell>
       <BetCell cellHeader={'1-2'} bet={bet} valueKey={'OCG[2].OC[4].O'}></BetCell>
       <BetCell cellHeader={'X-2'} bet={bet} valueKey={'OCG[2].OC[5].O'}></BetCell>
       <InfoCell cellHeader={'Var'}></InfoCell>
@@ -66,7 +73,7 @@ const Table = ({ bets }: TablePropsType) => {
           {TABLE_HEADER_LIST.map((th, i) => (
             <th
               key={`${th}-${i}`}
-              style={{ background: 'lightgray', border: '1px solid black', minWidth: '80px' }}>
+              style={{ background: 'lightgray', border: '1px solid black', minWidth: 80 }}>
               {th}
             </th>
           ))}
