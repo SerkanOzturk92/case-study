@@ -23,7 +23,7 @@ const BetItem = ({ bet }: any) => {
       <BetCell cellHeader={'Üst'} bet={bet} valueKey={'OCG[5].OC[26].O'}></BetCell>
       <InfoCell cellHeader={'H1'}></InfoCell>
       <InfoCell cellHeader={'1'}></InfoCell>
-      <InfoCell cellHeader={'x'}></InfoCell>
+      <InfoCell cellHeader={'X'}></InfoCell>
       <InfoCell cellHeader={'2'}></InfoCell>
       <InfoCell cellHeader={'H-2'}></InfoCell>
       <BetCell  cellHeader={'1-X'} bet={bet} valueKey={'OCG[2].OC[3].O'}></BetCell>

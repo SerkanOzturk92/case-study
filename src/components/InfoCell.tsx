@@ -1,4 +1,5 @@
 import React from 'react';
+import CellHeader from './CellHeader';
 
 export type InfoCellPropsType = {
   children?: React.ReactNode;
@@ -15,16 +16,7 @@ const InfoCell = ({ children, style, cellHeader }: InfoCellPropsType) => {
   return (
     <td style={{ border: '1px solid black', textAlign: 'center', ...style }}>
       <div style={styles}>
-        <div
-          style={{
-            height: '20px',
-            borderBottom: '1px solid black',
-            lineHeight: '20px',
-            padding: '0 10px',
-            whiteSpace: 'nowrap'
-          }}>
-          {cellHeader}
-        </div>
+        <CellHeader headerText={cellHeader}></CellHeader>
         <div
           style={{
             height: 50,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { getValueByPath } from '../utils/helpers';
 import { useCartContext } from '../context/Cart';
+import CellHeader from './CellHeader';
 
 export type BetCellPropsType = {
   bet?: any;
@@ -16,14 +17,12 @@ const BetCell = ({ bet, valueKey, cellHeader }: BetCellPropsType) => {
 
   const styles = {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column'
   } as React.CSSProperties;
   return (
-    <td style={{border: '1px solid black', textAlign: 'center'}}>
+    <td style={{ border: '1px solid black', textAlign: 'center' }}>
       <div style={{ ...styles }}>
-        <div style={{ lineHeight: '20px', height: '20px', borderBottom: '1px solid gray' }}>
-          {cellHeader || ''}
-        </div>
+        <CellHeader headerText={cellHeader}></CellHeader>
         <div
           style={{
             height: 50,
@@ -31,7 +30,7 @@ const BetCell = ({ bet, valueKey, cellHeader }: BetCellPropsType) => {
             cursor: 'pointer',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
           onClick={() => {
             selectBet(bet.NID, isSelectedBet(bet.NID, valueKey) ? undefined : valueKey);
