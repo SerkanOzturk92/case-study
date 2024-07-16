@@ -11,63 +11,27 @@ type TablePropsType = {
 const BetItem = ({ bet }: any) => {
   return (
     <>
-      <InfoCell
-        style={{
-          background: 'white',
-          position: 'sticky',
-          left: 0
-        }}>{`${bet.D} ${bet.DAY} ${bet.LN}`}</InfoCell>
-      {TABLE_HEADER_LIST.map((item) => {
-        return <InfoCell>{item}</InfoCell>;
-      })}
-    </>
-  );
-};
-
-const BetItem2 = ({ bet }: any) => {
-  return (
-    <>
-      <InfoCell
-        style={{
-          background: 'white',
-          position: 'sticky',
-          left: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          border: '1px solid black'
-        }}>
-        <div
-          style={{
-            height: '20px',
-            borderBottom: '1px solid black',
-            lineHeight: '20px',
-            padding: '0 10px'
-          }}>
-          {`${bet.D} ${bet.DAY} ${bet.LN}`}
-        </div>
-        <div style={{ height: '30px', lineHeight: '30px', padding: '0 10px' }}>
-          <strong>{bet.C}</strong>
-          {` ${bet.T} ${bet.N}`}
-        </div>
+      <InfoCell style={{ width: 400, position: 'sticky', left: 0 }} cellHeader={`${bet.D} ${bet.DAY} ${bet.LN}`}>
+          <strong style={{marginRight: 6}}>{bet.C}</strong><span>{bet.T} {bet.N}</span>
       </InfoCell>
-      <InfoCell>Yorumlar</InfoCell>
-      <InfoCell>{bet.MBS}</InfoCell>
-      <BetCell bet={bet} valueKey={'OCG[1].OC[0].O'}></BetCell>
-      <BetCell bet={bet} valueKey={'OCG[1].OC[1].O'}></BetCell>
-      <InfoCell></InfoCell>
-      <BetCell bet={bet} valueKey={'OCG[5].OC[25].O'}></BetCell>
-      <BetCell bet={bet} valueKey={'OCG[5].OC[26].O'}></BetCell>
-      <InfoCell></InfoCell>
-      <InfoCell></InfoCell>
-      <InfoCell></InfoCell>
-      <InfoCell></InfoCell>
-      <InfoCell></InfoCell>
-      <BetCell bet={bet} valueKey={'OCG[2].OC[3].O'}></BetCell>
-      <BetCell bet={bet} valueKey={'OCG[2].OC[4].O'}></BetCell>
-      <BetCell bet={bet} valueKey={'OCG[2].OC[5].O'}></BetCell>
-      <InfoCell></InfoCell>
-      <InfoCell></InfoCell>
-      <InfoCell></InfoCell>
+      <InfoCell cellHeader={'Yorumlar'}>Yorumlar</InfoCell>
+      <InfoCell cellHeader={''}>{bet.MBS}</InfoCell>
+      <BetCell cellHeader={'1'} bet={bet} valueKey={'OCG[1].OC[0].O'}></BetCell>
+      <BetCell cellHeader={'X'} bet={bet} valueKey={'OCG[1].OC[1].O'}></BetCell>
+      <InfoCell cellHeader={'2'}></InfoCell>
+      <BetCell cellHeader={'Alt'} bet={bet} valueKey={'OCG[5].OC[25].O'}></BetCell>
+      <BetCell cellHeader={'Üst'} bet={bet} valueKey={'OCG[5].OC[26].O'}></BetCell>
+      <InfoCell cellHeader={'H1'}></InfoCell>
+      <InfoCell cellHeader={'1'}></InfoCell>
+      <InfoCell cellHeader={'x'}></InfoCell>
+      <InfoCell cellHeader={'2'}></InfoCell>
+      <InfoCell cellHeader={'H-2'}></InfoCell>
+      <BetCell  cellHeader={'1-X'} bet={bet} valueKey={'OCG[2].OC[3].O'}></BetCell>
+      <BetCell cellHeader={'1-2'} bet={bet} valueKey={'OCG[2].OC[4].O'}></BetCell>
+      <BetCell cellHeader={'X-2'} bet={bet} valueKey={'OCG[2].OC[5].O'}></BetCell>
+      <InfoCell cellHeader={'Var'}></InfoCell>
+      <InfoCell cellHeader={'Yok'}></InfoCell>
+      <InfoCell cellHeader={'99+'}></InfoCell>
     </>
   );
 };
@@ -94,7 +58,7 @@ const Table = ({ bets }: TablePropsType) => {
               position: 'sticky',
               left: 0,
               zIndex: 1,
-              width: '300px',
+              minWidth: '400px',
               height: '50px'
             }}>
             Event Count: {bets.length}
@@ -102,13 +66,13 @@ const Table = ({ bets }: TablePropsType) => {
           {TABLE_HEADER_LIST.map((th, i) => (
             <th
               key={`${th}-${i}`}
-              style={{ background: 'lightgray', border: '1px solid black', width: '50px' }}>
+              style={{ background: 'lightgray', border: '1px solid black', minWidth: '80px' }}>
               {th}
             </th>
           ))}
         </tr>
       )}
-      itemContent={(i, bet) => <BetItem2 bet={bet} />}
+      itemContent={(i, bet) => <BetItem bet={bet} />}
     />
   );
 };

@@ -35,7 +35,7 @@ const Cart = () => {
   return (
     <div style={styles}>
       {selectedBets.map(({ bet, cellValue }, i) => (
-        <div style={{ padding: '20px', borderBottom: '1px solid gray' }}>
+        <div key={bet.NID} style={{ padding: '20px', borderBottom: '1px solid gray' }}>
           Kod: {bet.C} Maç: {bet.N} <strong>Oran: {cellValue}</strong>
         </div>
       ))}
