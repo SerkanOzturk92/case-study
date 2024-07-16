@@ -2,7 +2,7 @@ import { TableVirtuoso } from 'react-virtuoso';
 import { TABLE_HEADER_LIST } from '../utils/constants';
 import React from 'react';
 import InfoCell from './InfoCell';
-import BetCell from './BetCell';
+import BetCell from './BetCell/BetCell';
 
 type TablePropsType = {
   bets: any;

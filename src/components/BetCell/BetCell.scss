@@ -1,0 +1,17 @@
+.bet-cell {
+  border: 1px solid black;
+  text-align: center;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-body {
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
