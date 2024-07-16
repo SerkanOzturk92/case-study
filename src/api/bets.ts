@@ -6,4 +6,3 @@ export const getBets = async () => {
     console.log(err);
   }
 };
-

@@ -17,4 +17,4 @@ export const TABLE_HEADER_LIST = [
   'Var',
   'Yok',
   '99+'
-]
+];
