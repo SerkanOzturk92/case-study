@@ -24,8 +24,6 @@ export const CartProvider = ({ children }: React.PropsWithChildren<CartProviderP
     [selectedBetMap]
   );
 
-  console.log('selectedBetMap', selectedBetMap);
-
   const value = useMemo(
     () => ({ selectedBetMap, selectBet, isSelectedBet }),
     [selectedBetMap, selectBet, isSelectedBet]

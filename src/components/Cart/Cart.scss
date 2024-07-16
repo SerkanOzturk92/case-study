@@ -1,0 +1,27 @@
+.cart {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  height: min-content;
+  z-index: 1;
+  background: white;
+  border: 1px solid black;
+  max-height: 400px;
+  overflow: auto;
+
+  &-header {
+    padding: 20px;
+    border-bottom: 1px solid gray;
+  }
+
+  &-body {
+    position: sticky;
+    bottom: 0;
+    padding: 20px;
+    background: white;
+    border-top: 1px solid gray;
+  }
+
+}

@@ -1,0 +1,19 @@
+.info-cell {
+  border: 1px solid black;
+  text-align: center;
+
+  &-container {
+    background: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-body {
+    height: 50px;
+    line-height: 30px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,29 @@
+.bet-item-custom-cell-body {
+  width: 100%;
+
+  strong {
+    margin-right: 6px;
+  }
+}
+
+.table {
+  width: 100%;
+  min-width: 1200px;
+  user-select: none;
+
+  &-header-first {
+    background: lightgray;
+    border: 1px solid black;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    min-width: 400px;
+    height: 50px;
+  }
+
+  &-header-others {
+    background: lightgray;
+    border: 1px solid black;
+    min-width: 80px;
+  }
+}

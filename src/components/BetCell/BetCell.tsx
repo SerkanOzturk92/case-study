@@ -1,8 +1,9 @@
 import React from 'react';
 import { getValueByPath } from '../../utils/helpers';
 import { useCartContext } from '../../context/Cart';
-import CellHeader from '../CellHeader';
+import CellHeader from '../CellHeader/CellHeader';
 import { BetCellPropsType } from './types';
+import './BetCell.scss';
 
 const BetCell = ({ bet, valueKey, cellHeader }: BetCellPropsType) => {
   const { selectBet, isSelectedBet } = useCartContext();

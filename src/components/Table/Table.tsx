@@ -1,21 +1,27 @@
 import { TableVirtuoso } from 'react-virtuoso';
-import { TABLE_HEADER_LIST } from '../utils/constants';
+import { TABLE_HEADER_LIST } from '../../utils/constants';
 import React from 'react';
-import InfoCell from './InfoCell';
-import BetCell from './BetCell/BetCell';
+import InfoCell from '../InfoCell/InfoCell';
+import BetCell from '../BetCell/BetCell';
+import './Table.scss';
 
 type TablePropsType = {
   bets: any;
 };
 
 const BetItem = ({ bet }: any) => {
+  const customInfoCellStyle = {
+    width: 400,
+    position: 'sticky',
+    left: 0,
+    textAlign: 'left'
+  } as React.CSSProperties;
+
   return (
     <>
-      <InfoCell
-        style={{ width: 400, position: 'sticky', left: 0, textAlign: 'left' }}
-        cellHeader={`${bet.D} ${bet.DAY} ${bet.LN}`}>
-        <div style={{width: '100%'}}>
-          <strong style={{ marginRight: 6 }}>{bet.C}</strong>
+      <InfoCell style={customInfoCellStyle} cellHeader={`${bet.D} ${bet.DAY} ${bet.LN}`}>
+        <div className="bet-item-custom-cell-body">
+          <strong>{bet.C}</strong>
           <span>
             {bet.T} {bet.N}
           </span>
@@ -44,36 +50,23 @@ const BetItem = ({ bet }: any) => {
 };
 
 const Table = ({ bets }: TablePropsType) => {
+  const tableStyle = {
+    height: '100vh',
+    width: '100%',
+    position: 'relative'
+  } as React.CSSProperties;
   return (
     <TableVirtuoso
-      style={{ height: '100vh', width: '100%', position: 'relative' }}
+      style={tableStyle}
       data={bets}
       components={{
-        Table: ({ style, ...props }) => (
-          <table
-            {...props}
-            style={{ ...style, width: '100%', minWidth: '1200px', userSelect: 'none' }}
-          />
-        )
+        Table: ({ style, ...props }) => <table {...props} className="table" style={{ ...style }} />
       }}
       fixedHeaderContent={() => (
         <tr>
-          <th
-            style={{
-              background: 'lightgray',
-              border: '1px solid black',
-              position: 'sticky',
-              left: 0,
-              zIndex: 1,
-              minWidth: '400px',
-              height: '50px'
-            }}>
-            Event Count: {bets.length}
-          </th>
+          <th className="table-header-first">Event Count: {bets.length}</th>
           {TABLE_HEADER_LIST.map((th, i) => (
-            <th
-              key={`${th}-${i}`}
-              style={{ background: 'lightgray', border: '1px solid black', minWidth: 80 }}>
+            <th key={`${th}-${i}`} className="table-header-others">
               {th}
             </th>
           ))}
