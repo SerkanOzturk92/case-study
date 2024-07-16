@@ -1,10 +1,8 @@
 import React from 'react';
 import { BetContextProps } from './types';
 
-export const BetContext =
-  React.createContext<BetContextProps>({
+export const BetContext = React.createContext<BetContextProps>({
   bets: [],
   setBets: () => {},
   betMap: {}
 });
-

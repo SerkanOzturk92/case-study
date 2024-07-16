@@ -7,8 +7,8 @@ export const CartProvider = ({ children }: React.PropsWithChildren<CartProviderP
   const [selectedBetMap, setSelectedBetMap] = useState<SelectedBetMap>({});
 
   const selectBet = useCallback((rowId: RowId, colId?: ColId) => {
-    setSelectedBetMap(prevState => {
-      if(colId) {
+    setSelectedBetMap((prevState) => {
+      if (colId) {
         prevState[rowId] = colId;
       } else {
         delete prevState[rowId];
@@ -17,12 +17,18 @@ export const CartProvider = ({ children }: React.PropsWithChildren<CartProviderP
     });
   }, []);
 
-  const isSelectedBet = useCallback((rowId: RowId, colId: ColId) => {
-    return selectedBetMap[rowId] === colId;
-  },[selectedBetMap]);
+  const isSelectedBet = useCallback(
+    (rowId: RowId, colId: ColId) => {
+      return selectedBetMap[rowId] === colId;
+    },
+    [selectedBetMap]
+  );
 
-  console.log('selectedBetMap',selectedBetMap);
+  console.log('selectedBetMap', selectedBetMap);
 
-  const value = useMemo(()=>({selectedBetMap, selectBet, isSelectedBet}),[selectedBetMap, selectBet, isSelectedBet]);
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>
+  const value = useMemo(
+    () => ({ selectedBetMap, selectBet, isSelectedBet }),
+    [selectedBetMap, selectBet, isSelectedBet]
+  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
