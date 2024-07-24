@@ -1,21 +1,17 @@
-import React, { useEffect } from 'react';
-import { getBets } from './api/bets';
+import React from 'react';
 import Table from './components/Table/Table';
 import Cart from './components/Cart/Cart';
-import { useBetProvider } from './context/Bet';
+import useFetchBets from './hooks/useFetchBets';
 
 const Home = () => {
-  const { bets, setBets } = useBetProvider();
+  const { isLoading, isError, data } = useFetchBets();
 
-  useEffect(() => {
-    getBets().then((resp) => {
-      setBets(resp);
-    });
-  }, []);
+  if (isLoading) return <div>Loading</div>;
+  if (isError) return <div>Error Occurred</div>;
 
   return (
     <>
-      <Table bets={bets}></Table>
+      <Table bets={data}></Table>
       <Cart />
     </>
   );

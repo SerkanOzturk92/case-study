@@ -1,20 +1,21 @@
 import React, { useMemo, useState } from 'react';
 import { BetContext } from './betContext';
-import { Bet } from './types';
+import { Bet, IBet } from './types';
+import useFetchBets from '../../hooks/useFetchBets';
 
 type BetProviderProps = {};
 export const BetProvider = ({ children }: React.PropsWithChildren<BetProviderProps>) => {
-  const [bets, setBets] = useState<Bet[]>([]);
+  const { data } = useFetchBets();
 
   const betMap = useMemo(
     () =>
-      bets.reduce((map, bet) => {
+      data?.reduce((map: Record<string, IBet>, bet: IBet) => {
         map[bet.NID] = bet;
         return map;
       }, {}),
-    [bets]
+    [data]
   );
 
-  const value = useMemo(() => ({ bets, setBets, betMap }), [bets, betMap]);
+  const value = useMemo(() => ({ betMap }), [betMap]);
   return <BetContext.Provider value={value}>{children}</BetContext.Provider>;
 };
