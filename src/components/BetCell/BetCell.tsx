@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { getValueByPath } from '../../utils/helpers';
 import { useCartContext } from '../../context/Cart';
 import CellHeader from '../CellHeader/CellHeader';

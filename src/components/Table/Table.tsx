@@ -17,6 +17,9 @@ const BetItem = ({ bet }: any) => {
     textAlign: 'left'
   } as React.CSSProperties;
 
+  // TODO: değerler değişkenlere atanıp dışardan import edilebilir. enum tarzı bir yapıda olabilir.
+  const altValueKey = 'OCG[5].OC[25].O';
+
   return (
     <>
       <InfoCell style={customInfoCellStyle} cellHeader={`${bet.D} ${bet.DAY} ${bet.LN}`}>
@@ -32,7 +35,7 @@ const BetItem = ({ bet }: any) => {
       <BetCell cellHeader={'1'} bet={bet} valueKey={'OCG[1].OC[0].O'}></BetCell>
       <BetCell cellHeader={'X'} bet={bet} valueKey={'OCG[1].OC[1].O'}></BetCell>
       <InfoCell cellHeader={'2'}></InfoCell>
-      <BetCell cellHeader={'Alt'} bet={bet} valueKey={'OCG[5].OC[25].O'}></BetCell>
+      <BetCell cellHeader={'Alt'} bet={bet} valueKey={altValueKey}></BetCell>
       <BetCell cellHeader={'Üst'} bet={bet} valueKey={'OCG[5].OC[26].O'}></BetCell>
       <InfoCell cellHeader={'H1'}></InfoCell>
       <InfoCell cellHeader={'1'}></InfoCell>

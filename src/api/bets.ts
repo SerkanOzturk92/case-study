@@ -6,3 +6,4 @@ export const getBets = async () => {
     console.log(err);
   }
 };
+// TODO: direkt contextte çağrılabilir.
